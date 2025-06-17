@@ -107,7 +107,15 @@ Difficulty: Easy
 
 Analysts recovered a suspicious image from a threat actor’s social media account. At first glance, it looks like an innocent selfie - but insider reports suggest that a flag might be hiding in the image metadata. Can you extract it?
 
-The metadata for this image was easy to find.
+The metadata for this image was easy to find. I dropped the file into a website that showed the metadata for a given image. I am sure there is a native linux or windows method for doing this, but I wasn't aware of any at the time.
+
+https://www.metadata2go.com/view-metadata
+
+![selfie](https://github.com/user-attachments/assets/8bb3c19b-9ca5-4ee8-9b9e-be32558a94b9)
+
+![image](https://github.com/user-attachments/assets/fcd8652e-6647-4a94-bf91-56f76120131a)
+
+flag: C1{smile_youre_flagged}
 
 # **BLANK**
 
