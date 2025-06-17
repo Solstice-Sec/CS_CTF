@@ -117,22 +117,26 @@ https://www.metadata2go.com/view-metadata
 
 Flag: C1{smile_youre_flagged}
 
-# **BLANK**
+# **Packet Whisperer**
 
-Points: BLANK
+Points: 75
 
-Difficulty: BLANK
+Difficulty: Easy
 
-**Objective: BLANK**
+Our blue team intercepted a network capture file. It contains unencrypted HTTP traffic. While skimming through it, analysts believe someone accidentally exposed their login credentials in plain text. Review the PCAP to find the password that the user logged in with.
 
-BLANK
+I opened wireshark, dropped the pcap file in and then filtered for HTTP post requests. I found the login request to a website, with the flag being given as the password.'
 
-# **BLANK**
+Flag: C1{maybe_TLS_would_be_nice}
 
-Points: BLANK
+# **Behind the Beat**
 
-Difficulty: BLANK
+Points: 75
 
-**Objective: BLANK**
+Difficulty: Easy
 
-BLANK
+Agents intercepted an audio file named message.mp3. It plays a single tone, but we have intel that a flag might be tucked away in the metadata fields of the file. Can you inspect the file and uncover the flag?
+
+I remember solving this by checking the properties of the file and finding the flag there.
+
+C1{metadata_tells_more}
