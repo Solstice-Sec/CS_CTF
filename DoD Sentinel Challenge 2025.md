@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a035c50b-fd97-4e52-9673-21ee8c86d89d)Disclaimer: I didn't keep track of the descriptions and names of the challenges, so I looked at writeups from other participents for them. All methodologies and techniques mentioned are my own work however.
+Disclaimer: I didn't keep track of the descriptions and names of the challenges, so I looked at writeups from other participents for them. All methodologies and techniques mentioned are my own work however.
 
 # **Secret.txt Society**
 
