@@ -70,18 +70,6 @@ Deep inside Juche Jaguar’s intranet runs a custom token‐based gateway protec
 
 On logging in with the given credentials, you are given a JWT Token. While playing with OWASP Juice Box, I had modified JWT tokens to give admin rights before and figured it would work again. I loaded the request in Burp Suite on repeater and found that the server would verify if the JWT token was signed correctly for its contents. I tried brute forcing the key using jwt_tool, hashcat, and john the ripper, but none of them worked. As I was looking for information on how to execute the attack, I found that you can just sign the JWT token with the none algorithm and it would work. After figuring that out, I found the name of the challenge to be rather cheeky.
 
-# **None Shall Pass**
-
-Points: 200
-
-Difficulty: Medium
-
-**Objective: Find and access /secret**
-
-Deep inside Juche Jaguar’s intranet runs a custom token‐based gateway protecting their most sensitive files at /secret. We got our hands on a low‐privilege account (user:pass = agent:spudpotato) - use it to request an access token, then find a way to trick the gateway into granting you full admin rights and pull down the hidden intelligence (the flag) from /secret. Good luck, Operative.
-
-On logging in with the given credentials, you are given a JWT Token. While playing with OWASP Juice Box, I had modified JWT tokens to give admin rights before and figured it would work again. I loaded the request in Burp Suite on repeater and found that the server would verify if the JWT token was signed correctly for its contents. I tried brute forcing the key using jwt_tool, hashcat, and john the ripper, but none of them worked. As I was looking for information on how to execute the attack, I found that you can just sign the JWT token with the none algorithm and it would work. After figuring that out, I found the name of the challenge to be rather cheeky.
-
 # **Hardcoded Lies**
 
 Points: 75
