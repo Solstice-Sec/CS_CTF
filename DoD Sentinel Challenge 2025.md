@@ -1,4 +1,4 @@
-Disclaimer: I didn't keep track of the descriptions and names of the challenges, so I looked at writeups from other participents for them. All methodologies and techniques mentioned are my own work however.
+![image](https://github.com/user-attachments/assets/a035c50b-fd97-4e52-9673-21ee8c86d89d)Disclaimer: I didn't keep track of the descriptions and names of the challenges, so I looked at writeups from other participents for them. All methodologies and techniques mentioned are my own work however.
 
 # **Secret.txt Society**
 
@@ -30,7 +30,11 @@ This is another web exploitation task, this time involving some tool use. I had 
 
 [https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt](https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/common.txt)
 
+![image](https://github.com/user-attachments/assets/43ec0979-c7b7-415c-b534-c5ff1a117ea9)
+
 The reports page was unsecured, so I read through some of them. One of the reports contained the flag.
+
+![image](https://github.com/user-attachments/assets/9adab6b9-7895-4c40-8765-10f05e6ae033)
 
 flag: C1{ID0R_F13LD_R3P0RT}
 
@@ -46,11 +50,11 @@ Flag format is: C1{Cafe Name___Street Name}
 
 For example, Tom's Cafe located at 31 Mitchell Rd, Boston, MA would be C1{Tom's_Mitchell}.
 
+
 View Hint
 
- Image_1.png
+![image](https://github.com/user-attachments/assets/0b3203b6-5645-4097-8878-cd3421090cf1)
 
- Image_2.png
 
 I had done a reverse image search using various websites, starting with TinEye. I found the location, but the name for the location is different depending on where it is displayed. The location was Jumeriah Lowndes Hotel, which on some sites is called Parker's Jumeriah Lowndes Hotel. This makes a world of difference when submitting the flag, as Parkers doesn't equal Jumeriah. In order to find the Parkers portion, I had to inspect the wrapper for the cake closer. It had a key shaped P, that was unique enough to be reverse image searched via Google Lens.
 
@@ -67,3 +71,65 @@ Difficulty: Medium
 Deep inside Juche Jaguar’s intranet runs a custom token‐based gateway protecting their most sensitive files at /secret. We got our hands on a low‐privilege account (user:pass = agent:spudpotato) - use it to request an access token, then find a way to trick the gateway into granting you full admin rights and pull down the hidden intelligence (the flag) from /secret. Good luck, Operative.
 
 On logging in with the given credentials, you are given a JWT Token. While playing with OWASP Juice Box, I had modified JWT tokens to give admin rights before and figured it would work again. I loaded the request in Burp Suite on repeater and found that the server would verify if the JWT token was signed correctly for its contents. I tried brute forcing the key using jwt_tool, hashcat, and john the ripper, but none of them worked. As I was looking for information on how to execute the attack, I found that you can just sign the JWT token with the none algorithm and it would work. After figuring that out, I found the name of the challenge to be rather cheeky.
+
+# **None Shall Pass**
+
+Points: 200
+
+Difficulty: Medium
+
+**Objective: Find and access /secret**
+
+Deep inside Juche Jaguar’s intranet runs a custom token‐based gateway protecting their most sensitive files at /secret. We got our hands on a low‐privilege account (user:pass = agent:spudpotato) - use it to request an access token, then find a way to trick the gateway into granting you full admin rights and pull down the hidden intelligence (the flag) from /secret. Good luck, Operative.
+
+On logging in with the given credentials, you are given a JWT Token. While playing with OWASP Juice Box, I had modified JWT tokens to give admin rights before and figured it would work again. I loaded the request in Burp Suite on repeater and found that the server would verify if the JWT token was signed correctly for its contents. I tried brute forcing the key using jwt_tool, hashcat, and john the ripper, but none of them worked. As I was looking for information on how to execute the attack, I found that you can just sign the JWT token with the none algorithm and it would work. After figuring that out, I found the name of the challenge to be rather cheeky.
+
+# **Hardcoded Lies**
+
+Points: BLANK
+
+Difficulty: BLANK
+
+**Objective: BLANK**
+
+BLANK
+
+# **BLANK**
+
+Points: BLANK
+
+Difficulty: BLANK
+
+**Objective: BLANK**
+
+BLANK
+
+# **BLANK**
+
+Points: BLANK
+
+Difficulty: BLANK
+
+**Objective: BLANK**
+
+BLANK
+
+# **BLANK**
+
+Points: BLANK
+
+Difficulty: BLANK
+
+**Objective: BLANK**
+
+BLANK
+
+# **BLANK**
+
+Points: BLANK
+
+Difficulty: BLANK
+
+**Objective: BLANK**
+
+BLANK
