@@ -51,8 +51,6 @@ Flag format is: C1{Cafe Name___Street Name}
 For example, Tom's Cafe located at 31 Mitchell Rd, Boston, MA would be C1{Tom's_Mitchell}.
 
 
-View Hint
-
 ![image](https://github.com/user-attachments/assets/0b3203b6-5645-4097-8878-cd3421090cf1)
 
 
@@ -86,33 +84,42 @@ On logging in with the given credentials, you are given a JWT Token. While playi
 
 # **Hardcoded Lies**
 
-Points: BLANK
+Points: 75
 
-Difficulty: BLANK
+Difficulty: Easy
 
-**Objective: BLANK**
+The malware sample doesn’t appear to print anything useful. But our threat intel team believes it holds a hardcoded configuration string. Can you pull on some strings to retrieve it?
 
-BLANK
+I opened it in Ghidra and searched for strings. I didn't even have to filter the strings. When reading how others solved this, they often just ended up opening it in a text editor or running cat on it.
 
-# **BLANK**
+C1{h4rdc0ded_but_0verlooked}
 
-Points: BLANK
+# **Encoded Evidence**
 
-Difficulty: BLANK
+Points: 75
 
-**Objective: BLANK**
+Difficulty: Easy
 
-BLANK
+We've intercepted a suspicious script file. It appears to be a placeholder for some kind of malware delivery mechanism, but the actual payload seems to be hosted somewhere else. Analysts believe a flag is hidden by this script. Can you locate and decode it?
 
-# **BLANK**
+I already had Ghidra open from the previous task, so I opened the file in Ghidra. I found a url leading to a pastebin.
+https://pastebin.com/raw/eqkzMd2M
+The text from the pastebin read:
 
-Points: BLANK
+QzF7bjBfZDNidWdfbjBfcDR5bn0K
 
-Difficulty: BLANK
+This is base64. Toss it in Cyberchef and click the wand above output for the flag.
+C1{n0_d3bug_n0_p4yn}
 
-**Objective: BLANK**
+# **Hidden in Plain Sight**
 
-BLANK
+Points: 75
+
+Difficulty: Easy
+
+Analysts recovered a suspicious image from a threat actor’s social media account. At first glance, it looks like an innocent selfie - but insider reports suggest that a flag might be hiding in the image metadata. Can you extract it?
+
+The metadata for this image was easy to find.
 
 # **BLANK**
 
