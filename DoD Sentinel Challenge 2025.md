@@ -14,7 +14,7 @@ http://juche.msoidentity.com/
 
 The description of this specific problem heavily implies that I should be looking at the robots.txt. I did so and found the flag.
 
-flag: C1{r0b0ts_arent_4lways_p0lit3}
+Flag: C1{r0b0ts_arent_4lways_p0lit3}
 
 # **Field Reports Mayhem**
 
@@ -36,7 +36,7 @@ The reports page was unsecured, so I read through some of them. One of the repor
 
 ![image](https://github.com/user-attachments/assets/9adab6b9-7895-4c40-8765-10f05e6ae033)
 
-flag: C1{ID0R_F13LD_R3P0RT}
+Flag: C1{ID0R_F13LD_R3P0RT}
 
 # **Cafe Confidential**
 
@@ -80,7 +80,7 @@ The malware sample doesn’t appear to print anything useful. But our threat int
 
 I opened it in Ghidra and searched for strings. I didn't even have to filter the strings. When reading how others solved this, they often just ended up opening it in a text editor or running cat on it.
 
-C1{h4rdc0ded_but_0verlooked}
+Flag: C1{h4rdc0ded_but_0verlooked}
 
 # **Encoded Evidence**
 
@@ -97,7 +97,7 @@ The text from the pastebin read:
 QzF7bjBfZDNidWdfbjBfcDR5bn0K
 
 This is base64. Toss it in Cyberchef and click the wand above output for the flag.
-C1{n0_d3bug_n0_p4yn}
+Flag: C1{n0_d3bug_n0_p4yn}
 
 # **Hidden in Plain Sight**
 
@@ -115,7 +115,7 @@ https://www.metadata2go.com/view-metadata
 
 ![image](https://github.com/user-attachments/assets/fcd8652e-6647-4a94-bf91-56f76120131a)
 
-flag: C1{smile_youre_flagged}
+Flag: C1{smile_youre_flagged}
 
 # **BLANK**
 
