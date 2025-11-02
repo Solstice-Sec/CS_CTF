@@ -256,15 +256,15 @@ aXMgdGhpcyB0aGUgZGFnZ2VyPw==
 
 The base64 translates into "Is this the dagger?" I haven't been interested in basketball since I was a kid, so I had no field of reference to what a "dagger" was in basketball. I constructed a prompt and fed it to Grok.
 
-<img width="943" height="354" alt="image8" src="https://github.com/user-attachments/assets/763caacd-5cfd-4503-8681-7819e774d656" />
+<img width="844" height="786" alt="image3" src="https://github.com/user-attachments/assets/e71f701a-179f-42a1-a0da-bb9d0e2642e9" />
 
 May 12, 2019 is the date for the quote. When entered, it revealed a secret key.
 
-<img width="844" height="786" alt="image3" src="https://github.com/user-attachments/assets/e71f701a-179f-42a1-a0da-bb9d0e2642e9" />
+<img width="333" height="174" alt="image4" src="https://github.com/user-attachments/assets/7362a5d7-c906-434b-8a75-2ca5e628e562" />
 
 Attempting to send this secret key to the endpoint didn't work, so I took a minute to look back at the rest of the problem. We had previously decoded the input message for the bot from base64, so encoding this as Base64 makes sense. We send this newly crafted HTTP request and it works.
 
-<img width="333" height="174" alt="image4" src="https://github.com/user-attachments/assets/7362a5d7-c906-434b-8a75-2ca5e628e562" />
+<img width="943" height="354" alt="image8" src="https://github.com/user-attachments/assets/763caacd-5cfd-4503-8681-7819e774d656" />
 
 **Flag:** Found in response
 
