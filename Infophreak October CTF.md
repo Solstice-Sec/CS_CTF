@@ -179,9 +179,9 @@ This one was a guess. Generally, when social engineering attempts are made with 
 
 ---
 
-### IP Halloween 2025 - Theory of Deduction
+### IP Halloween 2025 - Theory of Deduction - Attempted but unsolved
 
-**Difficulty:** Hard 🔴 Attempted but unsolved
+**Difficulty:** Hard 🔴
 
 **Description:**
 
@@ -461,9 +461,9 @@ I put this into the password field for the 7z file, revealing a text file with t
 
 ---
 
-### IP Halloween 2025 - Spirit Halloween!
+### IP Halloween 2025 - Spirit Halloween! - Attempted but unsolved
 
-**Difficulty:** Hard 🔴 Attempted but unsolved
+**Difficulty:** Hard 🔴
 
 **Description:**
 
