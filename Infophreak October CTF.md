@@ -151,9 +151,9 @@ Attempting to send this secret key to the endpoint didn't work, so I took a minu
 Flag: Found in response
 
 <img width="844" height="786" alt="image3" src="https://github.com/user-attachments/assets/e71f701a-179f-42a1-a0da-bb9d0e2642e9" />
-<img width="943" height="354" alt="image8" src="https://github.com/user-attachments/assets/763caacd-5cfd-4503-8681-7819e774d656" />
 <img width="339" height="522" alt="image12" src="https://github.com/user-attachments/assets/6330dca0-7553-4acc-8eb1-592723d41a15" />
 <img width="333" height="174" alt="image4" src="https://github.com/user-attachments/assets/7362a5d7-c906-434b-8a75-2ca5e628e562" />
+<img width="943" height="354" alt="image8" src="https://github.com/user-attachments/assets/763caacd-5cfd-4503-8681-7819e774d656" />
 
 Forensics
 IP Halloween 2025 - Bones 1
