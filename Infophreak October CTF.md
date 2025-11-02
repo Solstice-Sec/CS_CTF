@@ -288,6 +288,8 @@ Paste contains a file with a single skull emoji. Downloading the file and viewin
 
 Looking them up, we get a list of variation selectors. We remove the base offset and convert each character to ASCII, resulting in "3D6k<?<JO75DOB5;DO=(m". We finally add 16 decimal to the bytes to return the flag.
 
+U+E016D becomes U+006D, which in decimal is 109, which we add 16 to to get 125, which becomes }. Applying this methodology to the rest of the string results in the flag.
+
 **Flag:** `CTF{LOLZ_GET_REKT_M8}`
 
 ---
