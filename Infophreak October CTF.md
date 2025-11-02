@@ -151,6 +151,7 @@ Attempting to send this secret key to the endpoint didn't work, so I took a minu
 Flag: Found in response
 
 <img width="844" height="786" alt="image3" src="https://github.com/user-attachments/assets/e71f701a-179f-42a1-a0da-bb9d0e2642e9" />
+<img width="943" height="354" alt="image8" src="https://github.com/user-attachments/assets/763caacd-5cfd-4503-8681-7819e774d656" />
 <img width="339" height="522" alt="image12" src="https://github.com/user-attachments/assets/6330dca0-7553-4acc-8eb1-592723d41a15" />
 <img width="333" height="174" alt="image4" src="https://github.com/user-attachments/assets/7362a5d7-c906-434b-8a75-2ca5e628e562" />
 
@@ -246,6 +247,7 @@ Solution:
 The challenge starts with a provided wav file called weird.wav. Listening to it, it kind of sounds like a dial up datastream, but after much messing around, I was able to determine that it was a SSTV signal. Claude was especially helpful with this after providing the spectrogram that I had generated, narrowing the list of possibilities down to a short few.
 I went through a number of tools on Kali Linux to try to work this out, but eventually found a webtool that would print it out. The image from the audio contained the flag.
 Flag: CTF{OMGth3yAreCOnTroLL1ngMYm1nd}
+<img width="1821" height="906" alt="image5" src="https://github.com/user-attachments/assets/6faeb4ab-791b-4447-b7b5-9972d50af439" />
 
 Reverse Engineering
 IP Halloween 2025 - Hieroglyphs
@@ -258,6 +260,9 @@ I put the file into Claude to clear up the file. It found that it contained a Ba
 I put this into the password field for the 7z file, revealing a text file with the flag.
 Flag: CTF{Ph4r40h}
 
+<img width="1821" height="906" alt="image5" src="https://github.com/user-attachments/assets/255e37c2-38db-4e6a-a687-e32a291713c5" />
+<img width="678" height="460" alt="image13" src="https://github.com/user-attachments/assets/95816de7-46e9-4b1c-9e16-e4b25cbb008c" />
+
 IP Halloween 2025 - Spirit Halloween!
 Difficulty: Hard 🔴
 Description:
@@ -267,7 +272,8 @@ Notes:
 ⚠️Use the command !ctfchallenge anywhere in the Infophreak Discord server and you will be sent instructions for starting the challenge⚠️
 
 Solution:
-To start this challenge, we need to enter a command on the InfoPhreak discord. That command tells a bot to direct message us with information on the challenge. You react with a pumpkin emote to start the test environment. It opens up to a "Spirit Halloween" website. After some manual searching, I decided to just download the whole site so that I can search at my leisure.
+To start this challenge, we need to enter a command on the InfoPhreak discord. That command tells a bot to direct message us with information on the challenge. You react with a pumpkin emote to start the test environment. It opens up to a "Spirit Halloween" website. After some manual searching, I decided to just download the whole site so that I can search at my leisure. I went through a number of potential leads, starting with common places like robots.txt, which redirected to the index.html, a behovior repeated through all other attempted endpoints. I turned to the email and other forms inside of the main webpage, but that led nowhere. I did not solve this problem. 
+
 
 Cracking
 IP Halloween 2025 - Crack the Crypt
