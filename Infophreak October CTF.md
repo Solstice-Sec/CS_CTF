@@ -151,6 +151,7 @@ Attempting to send this secret key to the endpoint didn't work, so I took a minu
 Flag: Found in response
 
 <img width="844" height="786" alt="image3" src="https://github.com/user-attachments/assets/e71f701a-179f-42a1-a0da-bb9d0e2642e9" />
+<img width="268" height="30" alt="image7" src="https://github.com/user-attachments/assets/2d6f8b1f-42dd-4b2c-8fd6-041f11feebd0" />
 <img width="339" height="522" alt="image12" src="https://github.com/user-attachments/assets/6330dca0-7553-4acc-8eb1-592723d41a15" />
 <img width="333" height="174" alt="image4" src="https://github.com/user-attachments/assets/7362a5d7-c906-434b-8a75-2ca5e628e562" />
 <img width="943" height="354" alt="image8" src="https://github.com/user-attachments/assets/763caacd-5cfd-4503-8681-7819e774d656" />
@@ -247,7 +248,7 @@ Solution:
 The challenge starts with a provided wav file called weird.wav. Listening to it, it kind of sounds like a dial up datastream, but after much messing around, I was able to determine that it was a SSTV signal. Claude was especially helpful with this after providing the spectrogram that I had generated, narrowing the list of possibilities down to a short few.
 I went through a number of tools on Kali Linux to try to work this out, but eventually found a webtool that would print it out. The image from the audio contained the flag.
 Flag: CTF{OMGth3yAreCOnTroLL1ngMYm1nd}
-<img width="1821" height="906" alt="image5" src="https://github.com/user-attachments/assets/6faeb4ab-791b-4447-b7b5-9972d50af439" />
+<img width="320" height="256" alt="image6" src="https://github.com/user-attachments/assets/3e6ec091-d7bc-4f66-96a8-4a43f3fecefc" />
 
 Reverse Engineering
 IP Halloween 2025 - Hieroglyphs
