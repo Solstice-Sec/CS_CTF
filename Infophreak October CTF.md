@@ -1,5 +1,5 @@
 Trevor Pelfrey
-
+ 
 OSINT
 IP Halloween 2025 - Evacuate 1
 Difficulty: Easy 🟢
