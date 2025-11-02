@@ -286,7 +286,7 @@ A lone skull sits before you. Sometimes, one is all it takes to start a mystery.
 
 Paste contains a file with a single skull emoji. Downloading the file and viewing it in Notepad shows that there are unknown characters as well. These characters are Unicode tags. We can use the following website for looking up each of these characters: https://r12a.github.io/uniview/
 
-Looking them up, we get a list of variation selectors. We extract the common values from them to end up with ASCII byte values. If we translate them into ASCII resulting in "3D6k<?<JO75DOB5;DO=(m". We finally add 16 decimal to the bytes to return the flag.
+Looking them up, we get a list of variation selectors. We remove the base offset and convert each character to ASCII, resulting in "3D6k<?<JO75DOB5;DO=(m". We finally add 16 decimal to the bytes to return the flag.
 
 **Flag:** `CTF{LOLZ_GET_REKT_M8}`
 
