@@ -60,6 +60,9 @@ The flag is case insensitive
 Solution:
 After much arguing with Grok, Claude and ChatGPT, I was able to get the image referenced in Q3. I learned from this task that Grok really doesn't have good OCR capabilities. It kept reading the ID wrong or reading the ID above the one needed.
 The link was: https://web.archive.org/web/20180719085116im_/http://i.imgur.com/2uQWr5E.png
+
+<img width="1055" height="380" alt="2uQWr5E" src="https://github.com/user-attachments/assets/6f56373a-b3eb-417b-9b35-b04aeec1ef75" />
+
 Flag: CTF{[SmokeLdr][smoke@exploit.im][8774C90BC844D839246FBCFFA31B75F4EC2B64C6]}
 
 IP Halloween 2025 - Hunting Evil
@@ -78,6 +81,8 @@ Solution:
 Using the provided PDF, we got all the TTPs and targets related to the group. I had Claude search the MITRE page on groups to find one that targets the same targets as in the document. The result was APT1 or Comment Crew. I went into ATT&CK Navigator to check the TTPs against known TTPs of APT1. Everything matched up well, with only one TTP being excluded from the group's usual activity. Looking at the MITRE page on APT1, the first software in the page was BISCUIT.
 Worth noting, I used multiple LLMs to check which threat actor it was and which software was used for the backdoor. You have to get very specific with the LLMs, otherwise they will come up with the wrong answer. Inevitably, I had to manually search for the answer, so for a task like this, I wouldn't personally use a LLM again.
 Flag: CTF{BISCUIT}
+
+<img width="1890" height="935" alt="image1" src="https://github.com/user-attachments/assets/bc008630-276d-4f49-9dfa-e7dd4692b07b" />
 
 IP Halloween 2025 - Gustavus Amrita's Nightmare 1-4
 Difficulty: Medium 🟡
@@ -144,6 +149,10 @@ The base64 translates into "Is this the dagger?" I haven't been interested in ba
 May 12, 2019 is the date for the quote. When entered, it revealed a secret key.
 Attempting to send this secret key to the endpoint didn't work, so I took a minute to look back at the rest of the problem. We had previously decoded the input message for the bot from base64, so encoding this as Base64 makes sense. We send this newly crafted HTTP request and it works.
 Flag: Found in response
+
+<img width="844" height="786" alt="image3" src="https://github.com/user-attachments/assets/e71f701a-179f-42a1-a0da-bb9d0e2642e9" />
+<img width="339" height="522" alt="image12" src="https://github.com/user-attachments/assets/6330dca0-7553-4acc-8eb1-592723d41a15" />
+<img width="333" height="174" alt="image4" src="https://github.com/user-attachments/assets/7362a5d7-c906-434b-8a75-2ca5e628e562" />
 
 Forensics
 IP Halloween 2025 - Bones 1
@@ -274,3 +283,7 @@ https://mega.nz/file/fnYxFKSb#iQ0Axk5YKYPivwQHAarlnQwO570F0Yw5ZaZ0OKF4ftk
 Solution:
 This was easily solved by plugging it into Claude. The password was berries1818. The first things he discovers in a forest are berries. The year of the novel's publication (Frankenstein - 1818) was a natural choice for the 4 digits.
 Flag: CTF{Berry_Sp00ky}
+
+<img width="546" height="313" alt="image11" src="https://github.com/user-attachments/assets/49e53a31-6c1b-4648-a19a-1f6fece694b8" />
+<img width="373" height="239" alt="image2" src="https://github.com/user-attachments/assets/acb60957-59c5-4efd-865c-292476626b81" />
+
