@@ -370,8 +370,53 @@ Find the flag hidden deep within this cipher.
 
 ```
 Gur cuernxf pbzr bhg ng avtug
-...
-[Truncated cipher text]
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Qvfpbf qba'g bcra 'gvyy nsgre qnex
+Naq vg nva'g 'gvyy gjryir 'gvyy gur cnegl ernyyl fgnegf
+Naq V nyjnlf unq gb or ubzr ol gra
+Evtug orsber gur sha jnf nobhg gb ortva
+Pebjqf bs crbcyr yvarq hc vafvqr naq bhg
+Whfg bar ernfba, gb unpx gur ubhfr
+Ohg va gur qnl gvzr gur fgerrgf jnf pyrne
+Lbh pbhyqa'g svaq n tbbq cuernx naljurer, 'pnhfr
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+(Gur cuernxf pbzr bhg)
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+(Gur cuernxf pbzr bhg)
+Gur cuernxf pbzr bhg ng avtug
+Abj jura cuernxf trg qerffrq gb tb bhg ng avtug
+Gurl yvxr gb jrne yrngure wnpxrgf, PGS{pu4vaf&fc1xrf}
+Gurl jrne evcf naq mvccref nyy va gurve fuvegf
+Erny sver ungf be serfu vasbcuernx zrepu
+Nyy xvaqf bs pbybef ehaava' guebhtu gurve unve
+Naq lbh pbhyq whfg nobhg fcbg n cuernx naljurer
+Ohg gura ntnva, lbh pbhyq xabj fbzrbar nyy gurve yvsr
+Ohg zvtug abg xabj gurl'er n cuernx hayrff lbh frr gurz ng avtug, 'pnhfr
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+(Gur cuernxf pbzr bhg)
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+(Gur cuernxf pbzr bhg)
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+(Gur cuernxf pbzr bhg)
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
+Gur cuernxf pbzr bhg ng avtug
 ```
 
 **Solution:**
@@ -394,13 +439,69 @@ Find the flag hidden deep within this cipher.
 
 ```
 Koac jnf qrrnc xf gfnra kpe
-...
-[Truncated cipher text]
+Yydlfx′c yqe uimo co uon tjo LTH uny vymaa?
+Mxmg grtj eb apn how grln cne
+Vrrs, qea tqgw oh Rjlnyfegx
+Chkc rs Jkulqgnep, dqiu sb Hcvuoyonn
+Revpmsws umaecw rn vrn dgkm oh xrgjd
+Chkc rs Jkulqgnep, oeetikofi vamo j seowe
+Vbrcm ya ttojt 'vsu tjo wekqqbqbb gqxwa fsn oh paiirc
+Iv′c xut dxwp, oeetikofi bctojm
+Kx chkc coyx xf Jkulqgnep
+S jm vrn opo qifswg wxmet ixut lnd
+Vontj qaowxm sjkap cxm eaob gnyfipq aef
+S jm vrn opo qifswg wxmet ixut ccakbb
+Fkxpetc uimo bncuns cxm srsmetc rn oi qakb
+Chkc rs Jkulqgnep, dqiu sb Hcvuoyonn
+Jkulqgnep, Rjlnyfegx, Qanvxwgow, Hcvuoyonn
+Kx chkc coyx, fe ekul jyve
+Gfnraywe jkrl vy chg zdmrurn uywg
+Kx chkc coyx, mop'd fe nyee kd woy?
+Oeetikofi'b wcscipq oot dqe pogt ueaptsbe
+′Tydnf dqav mxrpoa mcx, qifswg kx chg daaur lapc
+Chg MCF’u gjivswg hya tjo yowxle cxm hqg how'vu
+CVP{BCT34W!}
+Chkc rs Jkulqgnep
+Bnd cxm bnklk, cxm snsvy ibnep
+Kaep′d how clatom? Wgvu, tjkc's lebt hswe
+Ukh iv ywcg, cjy kd cwkmn
+Tcun a erjneo jnf bxln k mieo
+Aifo fivr chg wxop sw tjo mecn xf psphv
+Oeetikofi bctojm, gfnralxda clrgkv
+Ip ydr vyfn qp Qanvxwgow
+I cw chg muoyx fivr chg dnat kfaa pjcg
+Rnrg sw a hvjsj kwd iywe yschqec a vbjcg
+S jm vrn "Wjy" fhgx how mjln, "Gqo′u dqeto?"
+R ao dqe yswd dvxwkxp tjbxuir howb qakb
+R ao dqe urjdqg xn vrn mqyw av xrgjd
+Oinvrni ixut naecwb tq dqe dbrm ysch hbrgjd
+Chkc rs Jkulqgnep, dqiu sb Hcvuoyonn
+Jkulqgnep, Rjlnyfegx, Qanvxwgow, Hcvuoyonn
+Jkulqgnep, Rjlnyfegx
+Cepnnr nevpnswgu oeetifhgbn
+Lkpn's py oup grtjydt c qxof clato
+Chcd′b owb sod, ldt yo'ae pyc mgkw
+Ip ydr vyfn qp Qanvxwgow
+Ip dqiu dxwp, nxn'v gn lqfn iv xxw?
+Gfnraywe′u gjivsw′ fqb chg xnxv cdrrbrsg
+Ctenocop Tjcm wrgjd lavmq yqe rn vrn bcmt
+Apn bctojm nste c ljnurne
+Okte ayd jwwy owd xf aydr uurn
+Vrrs kc Qanvxwgow, exoaydymy umaecw
+Fop'd how zueccn mcun wci oot k eeti bpgmran qdy
+Qea mcx Saeu rs Mswg qp chg zdmrurn rkccj
+Oeetixng rjin dx tjo Yuoztip Urni xxw
+Vrrs kc Qanvxwgow, tjsb iu Rjlnyfegx
+Qanvxwgow, Hcvuoyonn, Jkulqgnep, Rjlnyfegx
+Rn vrrs vyfn, yo lanv qooo
+Nvgbhopo qakv co vrn pwwykkx bopq
+Ua, nk, ua, nk-ua-nk, ua, nk, ua-nk-ua, nk, ua, nk-ua-nk, ua-nk-ua, yon
+
 ```
 
 **Solution:**
 
-This is a Vigenere cipher. AI systems couldn't solve it correctly, so I found a website that would solve it for me. You can tell it is Vigenere by the fact that the flag got turned into CVP from CTF.
+This is a Vigenere cipher. AI systems couldn't solve it correctly, so I found a website that would solve it for me. You can tell it is Vigenere by the fact that the flag text doesn't rotate into CTF when ran through Caesar cipher, but still has a similar look to as if it were ran through Caesar cipher.
 
 Site used: https://www.guballa.de/vigenere-solver
 
@@ -425,7 +526,7 @@ The US military has uncovered a strange device left in a crop circle in Idaho. A
 
 **Solution:**
 
-The challenge starts with a provided wav file called weird.wav. Listening to it, it kind of sounds like a dial up datastream, but after much messing around, I was able to determine that it was a SSTV signal. Claude was especially helpful with this after providing the spectrogram that I had generated, narrowing the list of possibilities down to a short few.
+The challenge starts with a provided wav file called weird.wav. Listening to it, it kind of sounds like a dial up datastream. After much messing around, I was able to determine that it was a SSTV signal. Claude was especially helpful with this after providing the spectrogram that I had generated, narrowing the list of possibilities down to a short few possible formats.
 
 I went through a number of tools on Kali Linux to try to work this out, but eventually found a webtool that would print it out. The image from the audio contained the flag.
 
