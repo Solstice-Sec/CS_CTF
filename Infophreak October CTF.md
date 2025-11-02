@@ -181,7 +181,7 @@ This one was a guess. Generally, when social engineering attempts are made with 
 
 ### IP Halloween 2025 - Theory of Deduction
 
-**Difficulty:** Hard 🔴
+**Difficulty:** Hard 🔴 Attempted but unsolved
 
 **Description:**
 
@@ -412,19 +412,6 @@ The decrypted text reveals "This is Halloween" song lyrics with the flag embedde
 
 ## General Skills
 
-### IP Halloween 2025 - Help
-
-**Difficulty:** Easy 🟢
-
-**Description:**
-
-Uncover the mystery of Zoe. https://zoeparas.blogspot.com/
-
-**Notes:**
-- No spaces in any of the passwords
-
----
-
 ### IP Halloween 2025 - Encounters of the Weird Kind
 
 **Difficulty:** Hard 🔴
@@ -460,11 +447,11 @@ Deep within the ancient Egyptian pyramids lie untold treasures. Crack the code o
 
 **Solution:**
 
-The challenge starts with a zip file containing a 7z file with the flag in a text file and a class file that contains the key to unlock it. I tried to open it in Notepad++, Eclipse and Visual Studio, which all resulted in unclear text.
+The challenge starts with a zip file containing a 7z file with the flag in a text file and a class file that contains the key to unlock it. I tried to open it in Notepad++, Eclipse and Visual Studio, which all resulted in some not easily readable text.
 
 <img width="1821" height="906" alt="image5" src="https://github.com/user-attachments/assets/255e37c2-38db-4e6a-a687-e32a291713c5" />
 
-I put the file into Claude to clear up the file. It found that it contained a Base64 string that was XORed with a key. Claude wrote a program to reverse this encoding and executed it, revealing the password.
+I put the file into Claude to clear up the text so that it is more readable. It found that it contained a Base64 string that was XORed with a key. Claude wrote a program to reverse this encoding and executed it, revealing the password.
 
 <img width="678" height="460" alt="image13" src="https://github.com/user-attachments/assets/95816de7-46e9-4b1c-9e16-e4b25cbb008c" />
 
@@ -476,7 +463,7 @@ I put this into the password field for the 7z file, revealing a text file with t
 
 ### IP Halloween 2025 - Spirit Halloween!
 
-**Difficulty:** Hard 🔴
+**Difficulty:** Hard 🔴 Attempted but unsolved
 
 **Description:**
 
