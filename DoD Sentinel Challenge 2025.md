@@ -1,538 +1,220 @@
-# Infophreak 2025 CTF Writeup
+# DoD Sentinel Challenge 2025 Writeup
 **Author:** Trevor Pelfrey
 
 ---
 
 ## Table of Contents
-- [OSINT](#osint)
-- [Web Pentesting](#web-pentesting)
-- [Forensics](#forensics)
-- [Cryptography](#cryptography)
-- [General Skills](#general-skills)
+- [Web Exploitation](#web-exploitation)
 - [Reverse Engineering](#reverse-engineering)
-- [Cracking](#cracking)
+- [Forensics](#forensics)
+- [Network Analysis](#network-analysis)
+
+---
+
+## Web Exploitation
+
+### Secret.txt Society
+
+**Points:** 75
+
+**Difficulty:** Easy
+
+**Description:**
+
+Our team suspects that a Juche Jaguar developer accidentally left something interesting behind on a public site. You've been tasked with examining its structure. Can you uncover what the bots were told to ignore? Start with the usual entry points a crawler might explore. One disallowed path leads to a page where someone left behind more than just code.
+
+**Challenge URL:** http://juche.msoidentity.com/
+
+**Solution:**
+
+I navigated to the link provided. The description of this specific problem heavily implies that I should be looking at the robots.txt. I did so and found the flag.
+
+**Flag:** `C1{r0b0ts_arent_4lways_p0lit3}`
+
+---
+
+### Field Reports Mayhem
+
+**Points:** 150
+
+**Difficulty:** Easy
+
+**Description:**
+
+We've gained access to the Juche Jaguar's Field Reports archive through an operative's use of weak credentials. Upon logging in, the operative sees their previous field reports and can file new ones. Somewhere in here, I am sure some 'leet' agent stashed the Supreme Leader's secret pizza discount code!
+
+**Note:** When I wrote my rough writeup initially I had misremembered the objective as **Objective: Take Kim Jong Un's pizza recipe**
+
+**Solution:**
+
+This is another web exploitation task, this time involving some tool use. I had previously used Gobuster while doing web enumeration in some of my cybersecurity classes back in community college. I used it this time in combination with a wordlist provided below to scan for common web directories.
+
+**Wordlist:** https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/common.txt
+
+![image](https://github.com/user-attachments/assets/43ec0979-c7b7-415c-b534-c5ff1a117ea9)
+
+The reports page was unsecured, so I read through some of them. One of the reports contained the flag.
+
+![image](https://github.com/user-attachments/assets/9adab6b9-7895-4c40-8765-10f05e6ae033)
+
+**Flag:** `C1{ID0R_F13LD_R3P0RT}`
+
+---
+
+### None Shall Pass
+
+**Points:** 200
+
+**Difficulty:** Medium
+
+**Description:**
+
+Deep inside Juche Jaguar's intranet runs a custom token-based gateway protecting their most sensitive files at /secret. We got our hands on a low-privilege account (user:pass = agent:spudpotato) - use it to request an access token, then find a way to trick the gateway into granting you full admin rights and pull down the hidden intelligence (the flag) from /secret. Good luck, Operative.
+
+**Objective:** Find and access /secret
+
+**Solution:**
+
+On logging in with the given credentials, you are given a JWT Token. While playing with OWASP Juice Box, I had modified JWT tokens to give admin rights before and figured it would work again. I loaded the request in Burp Suite on repeater and found that the server would verify if the JWT token was signed correctly for its contents. I tried brute forcing the key using jwt_tool, hashcat, and john the ripper, but none of them worked. As I was looking for information on how to execute the attack, I found that you can just sign the JWT token with the none algorithm and it would work. After figuring that out, I found the name of the challenge to be rather cheeky.
+
+**Flag:** [Flag obtained from /secret endpoint]
 
 ---
 
 ## OSINT
 
-### IP Halloween 2025 - Evacuate 1
+### Cafe Confidential
 
-**Difficulty:** Easy 🟢
+**Points:** 75
 
-**Description:**
-
-The year is 2014. Deep in the digital shadows, a single machine became the center of a unique data breach involving known and unknown malicious software. The hunter was building malware to attack, but due to a lapse in OPSEC judgement, the hunter became the hunted. Kaspersky was installed and alerted by a legitimate malware infection on the system. After analyzing the backdoor variant, Kaspersky found that this system also contained advanced malware source code. So advanced, in fact, that Kaspersky classified this malware as part of the "Equation Group Malware Family."
-
-Answer these questions to build the flag:
-
-**Q1:** Who is the Equation Group? Use the abbreviated letters.
-
-**Q2:** What is the first discovered malware platform/module variant Kaspersky found and classified as part of the Equation Group malware family? (Note: this is not asking what platform/module was first created and used by the Equation Group, but what was found first in the wild by Kaspersky.)
-
-**Q3:** The infected system that was recognized as belonging to a developer of Equation Group malware was only found because the developer attempted to rip a pirated and infected copy of Microsoft Office. Inside the ISO, was a malicious "setup.exe". What is the SHA256 hash of this "setup.exe", specifically?
-
-**Notes:**
-- Make sure to maintain the brackets "[]" for each question.
-- Flag format: CTF{[Q1][Q2][Q3]}
-- The flag is case insensitive
-
-**Solution:**
-
-This challenge is about knowing your history as it comes to cybersecurity. Equation Group is suspected to be related to the NSA through their Tailored Access Operations unit. EquationDrug is one of the first bits of malware discovered and classified by Kaspersky.
-
-**Flag:** `CTF{[TAO][EquationDrug][6bcd591540dce8e0cef7b2dc6a378a10d79f94c3217bca5f05db3c24c2036340]}`
-
----
-
-### IP Halloween 2025 - Evacuate 2
-
-**Difficulty:** Easy 🟢
+**Difficulty:** Medium
 
 **Description:**
 
-Continuing your analysis on the 2014 incident described in part 1, let's dive deeper into the catalyst for detection. All of the below questions refer to the known malware variant that Kaspersky initially discovered before identifying the unknown Equation Group malware.
+Two photos were posted minutes apart by someone of interest. One shows them enjoying a slice of cake in a boutique café; the other captures a well-known landmark in the background. We believe both photos were taken on the same outing. Can you determine exactly which café they visited, and where is it?
 
-Answer these questions to build the flag:
+**Flag format:** C1{Cafe Name___Street Name}
 
-**Q1:** What is the full file name of the malicious dropper hidden in the setup executable? (e.g. file.txt)
+**Example:** Tom's Cafe located at 31 Mitchell Rd, Boston, MA would be C1{Tom's_Mitchell}.
 
-**Q2:** What is the RC2 key to decrypt the PE file?
-
-**Q3:** The same person registered both command and control (C&C/C2) domains. What is their first and last name, separated by a space?
-
-**Notes:**
-- Make sure to maintain the brackets "[]" for each question.
-- Flag format: CTF{[Q1][Q2][Q3]}
-- The flag is case insensitive
+![image](https://github.com/user-attachments/assets/0b3203b6-5645-4097-8878-cd3421090cf1)
 
 **Solution:**
 
-Most OSINT tasks such as this can be automated by using AI. I used Claude in this case, but it is worth noting that AI still has the hallucination issue, meaning you should always double check the AI's methodologies for collecting information as well as double checking the information itself.
+I had done a reverse image search using various websites, starting with TinEye. I found the location, but the name for the location is different depending on where it is displayed. The location was Jumeriah Lowndes Hotel, which on some sites is called Parker's Jumeriah Lowndes Hotel. This makes a world of difference when submitting the flag, as Parkers doesn't equal Jumeriah. In order to find the Parkers portion, I had to inspect the wrapper for the cake closer. It had a key shaped P, that was unique enough to be reverse image searched via Google Lens.
 
-**Flag:** `CTF{[steam.exe][hvgpj][Yasir Shah]}`
-
----
-
-### IP Halloween 2025 - Evacuate 3
-
-**Difficulty:** Easy 🟢
-
-**Description:**
-
-You may know how the malware works under the hood, but do you know where it came from? Follow the origin of the malware you investigated in part 2.
-
-Answer these questions to build the flag:
-
-**Q1:** What is the person's handle that was selling the malware bot/loader?
-
-**Q2:** What is their main email address used repeatedly?
-
-**Q3:** On one of the example photos, you see a list of Bot IDs. What is the ID of the bot where the "Last Visit" field is "08.08.2013 22:38:05"?
-
-**Notes:**
-- Make sure to maintain the brackets "[]" for each question.
-- Flag format: CTF{[Q1][Q2][Q3]}
-- The flag is case insensitive
-
-**Solution:**
-
-After much arguing with Grok, Claude and ChatGPT, I was able to get the image referenced in Q3. I learned from this task that Grok really doesn't have good OCR capabilities. It kept reading the ID wrong or reading the ID above the one needed.
-
-The link was: https://web.archive.org/web/20180719085116im_/http://i.imgur.com/2uQWr5E.png
-
-<img width="1055" height="380" alt="2uQWr5E" src="https://github.com/user-attachments/assets/6f56373a-b3eb-417b-9b35-b04aeec1ef75" />
-
-**Flag:** `CTF{[SmokeLdr][smoke@exploit.im][8774C90BC844D839246FBCFFA31B75F4EC2B64C6]}`
-
----
-
-### IP Halloween 2025 - Hunting Evil
-
-**Difficulty:** Easy 🟢
-
-**Description:**
-
-If you want to hunt true evil, follow the money...
-
-The intelligence division of infophreak, intelphreak, has uncovered a dark web ring of red rooms being run by a group named "WE<3PA1N". Due to their Operational Security, we have been unable to directly track the group themselves.
-
-We have found a potential link with another threat actor who we suspect to be state-sponsored. WE<3PA1N is purchasing stolen information from this threat actor on dark web channels in order to conduct reconnaissance on potential victims to kidnap.
-
-Using the information found by the intelphreak division, find the first standard backdoor used by the group. Those victims are counting on us!
-
-**Notes:**
-- Example Flag: CTF{MALWARE}
-- DISCLAIMER: This challenge is meant to be solved using open sources available on the clearnet only. Please do not attempt to go on the dark web or access any dark web marketplaces. The threat group, WE<3PA1N, is a fictional group. You do not need to make active contact with any real threat groups and we advise you do not do that for this challenge. It will not help you solve it.
-
-**Solution:**
-
-Using the provided PDF, we got all the TTPs and targets related to the group. I had Claude search the MITRE page on groups to find one that targets the same targets as in the document. The result was APT1 or Comment Crew. I went into ATT&CK Navigator to check the TTPs against known TTPs of APT1. Everything matched up well, with only one TTP being excluded from the group's usual activity. Looking at the MITRE page on APT1, the first software in the page was BISCUIT.
-
-Worth noting, I used multiple LLMs to check which threat actor it was and which software was used for the backdoor. You have to get very specific with the LLMs, otherwise they will come up with the wrong answer. Inevitably, I had to manually search for the answer, so for a task like this, I wouldn't personally use a LLM again.
-
-<img width="1890" height="935" alt="image1" src="https://github.com/user-attachments/assets/bc008630-276d-4f49-9dfa-e7dd4692b07b" />
-
-**Flag:** `CTF{BISCUIT}`
-
----
-
-### IP Halloween 2025 - Gustavus Amrita's Nightmare 1-4
-
-**Difficulty:** Medium 🟡
-
-**Description:**
-
-Oh no, someone compromised one of our client's devices! All of the files on the device were deleted, and the wallpaper was changed to a picture of a jack-o-lantern!
-
-Luckily, we have backups and our IT personnel are working on restoring the computer, but we need more information and unfortunately didn't perform any forensics.
-
-We know the attack came from the IP address "172.67.178.15", and an MSI file was installed on the device, but not much more. As the newest member of the Intelphreak Team, Infophreak's cyber threat intelligence division, you have been tasked with figuring out what happened!
-
-**WARNING:** The information and artifacts involved in this challenge come from a real campaign of cyber attacks that took place in early 2025, meaning the attacker's infrastructure may still be active. Keep the following in mind so you don't accidentally download malware:
-- This challenge can be completed using nothing but a web browser
-- Do not execute any commands or files you come across
-- Do not navigate to any malicious domains or IP addresses in a non-sandboxed environment
-- Do exercise caution and practice critical thought
-
-**Solution:**
-
-I used the following URL to check this: https://www.joesandbox.com/analysis/1623555/0/html
-
-**Part 1 - What is the name of the MSI file used in the attack?**
-
-**Flag:** `CTF{3aw.msi}`
-
-**Part 2 - What malicious domain is used in the attack?**
-
-**Flag:** `CTF{bestiamos.com}`
-
-**Part 3 - What URL-shortening service was used in this attack?**
-
-**Flag:** `CTF{short.gy}`
-
-**Part 4 - What series of keyboard combinations was the victim social engineered into making?**
-
-This one was a guess. Generally, when social engineering attempts are made with people using Windows systems, they have the victim open up the run prompt or cmd and paste a malicious script, generally downloading malware.
-
-**Flag:** `CTF{WIN+R;CTRL+V;ENTER}`
-
----
-
-### IP Halloween 2025 - Theory of Deduction
-
-**Difficulty:** Hard 🔴
-
-**Description:**
-
-Each puzzle hides a single letter, number, or symbol. Piece them together, and they reveal the key to the sealed treasure.
-
-Good luck,
-
-Regards,
-Sherlock Homeless
-
-**Puzzles:**
-
-1. "From where you stand, amid glass and steel, A pale sky gleams, and daylight reveals. White upon blue, a name comes into view, Behind the shine, the first letter of my word guides you through. Do not step forward, not an inch away, Just turn around and look close --- the clue won't stray."
-
-2. "A giant wheel frames the sky ahead, Its circle watches, though nothing is said. Think of the name this great eye guards --- And keep the first round among its parts."
-
-3. "Stand firm, take not a single step, Rotate your view --- let your eyes adept. A house of skill and craft appears, Its letters hide a force revered. Like a racer nearing the final bend, Taking third as the journey ends."
-
-4. "Stand still where ancient stone holds its throne, As arches murmur of ages long gone. Beyond these ruins, a name stands tall --- The Eternal City, revered by all. Within its name, where all counts begin, A hollow waits --- the first that steps in."
-
-5. "Stand firm where arches stretch and climb, Steel and stone hold back the time. Look around, yet do not tread, A hidden link lies just ahead. Beneath your gaze, it spans unseen, The quiet mark that joins between."
-
-6. "Before you, cliffs rise like ancient guards, Waves crash with fury, winds sing of bards. The God of Thunder bends the northern skies, Lightning arcs where a hidden isle lies. Though your feet rest on familiar stone, Beyond the lands where larger isles slumber, Seek the wild northern waters' thunder. The first of this isle begins your plunder."
-
-7. "Among these quiet merchant streets, where gulls trace secrets on the wind, stands a sentinel who outlived all others. It has watched empires trade and tides retreat, older than the stones you tread, and the very first to pierce this coast with fire. Find this eldest of the beacons, untouched by time's wrath, Its rank in history marks your path."
-
-8. "Beneath the spires of storied halls, Where rival minds once paced the walls, A hidden lab stitched silent streams, Through copper veins and circuit dreams. A single mind joined name to name, And lit the spark that changed the game. Trace the arc where messages unite, The curl that bridges left and right."
-
-9. "Beneath the towers of gold and light, Two warriors clashed in a fabled fight. Yet one was struck, the crown slipped from his hand, Fortune and glory scattered across the land. A lone sigil waits where heroes fell, Follow the vanquished to claim the spell. The first of the name they bear last, Unlocks the key to complete your task."
-
-**Solution:**
-
-All of these have pictures attached that you are supposed to glean information from. 
-
-1: M. I had tried find the specific location online, but I couldn't find it. The puzzle seems to me to imply that the answer is behind the point of view of the photo. When performing a dictionary attack on the file, I used A-Z, a-z on this place. 
-
-2: O or L. The image is of the London Eye. When I see round, I assume it is either meaning the character in the name or the "round" of the name, being o.
-
-3: U or E. 3rd as the journey ends implies the third character in the word, either from the first or last. Attempts to find this photo's specific location were also a failure.
-
-4: R or O. Implies the start of the Rome, but also says a hollow waits - the first to step in, which implies R or O.
-
-5: -. The text says that it is a quiet mark that is a hidden link. It could also be implied that the lane markings are the answer. 
-
-6: T. This seems to be in the Faroe islands. Torshavn appears to be the island that the text is talking about.
-
-7: 1, I or B. Rank in history implies first place, which could mean the first character. The oldest thing in the photo appears to be the Brandaris. 
-
-8: @. Riddle implies technology background. Curl that bridges left and right would imply an @.  RTX BBN Technologies.
-
-9: M. Mayweather. For this one I had assembled a list of characters from last names, but I still think it is Mayweather. The character list looked like "P D C M". I don't pay much attention to sports, so this is one I would know much about.
-
-I didn't want to waste time putting each guess into the 7zip password file, so I tried using JohnTheRipper, since the naming is thematically appropriate and probably intended. I tried both John and Hashcat, but they both found nothing. I figured it was probably a technical issue rather than just not having the password, so I created a password protected 7z file and tested both against it, this time with a password list with a known good password. Didn't work.
-
-Ultimately, I wound up using a script to perform the same task:
-
-```bash
-cat testPass.txt | parallel -j16 '7z t -p{} Test.7z >/dev/null 2>&1 && echo FOUND:{} && pkill -P $$ parallel'
-```
-
-We cat the password list, opening parallel 7zip instances against each password. When the password is found, it echos the password.
-
-I exhausted a sizable password list of around one million combinations to no avail. I left this one unanswered.
-
----
-
-## Web Pentesting
-
-### IP Halloween 2025 - Encoded Message
-
-**Difficulty:** Easy 🟢
-
-**Description:**
-
-Your goal is to extract a specific piece of secret information. However, the system containing the secret is locked down, and your only interface is a restricted chatbot. The chatbot is designed to be helpful but has been programmed with strict rules that prevent it from divulging the secret directly.
-
-**Challenge URL:** https://web-ctfs.vercel.app/encoded-message
-
-**Solution:**
-
-The provided chatbot only communicated in quotes or on specific keywords. I typed "HELP" into it, to which it responded with helpful information.
-
-<img width="339" height="522" alt="image12" src="https://github.com/user-attachments/assets/6330dca0-7553-4acc-8eb1-592723d41a15" />
-
-When we press F12 and go to sources, we will see the website's assets. Part of it seems to be code related to the bot. It had a few hardcoded variables, one of which was in base64:
-
-<img width="268" height="30" alt="image7" src="https://github.com/user-attachments/assets/2d6f8b1f-42dd-4b2c-8fd6-041f11feebd0" />
-
-```
-aXMgdGhpcyB0aGUgZGFnZ2VyPw==
-```
-
-The base64 translates into "Is this the dagger?" I haven't been interested in basketball since I was a kid, so I had no field of reference to what a "dagger" was in basketball. I constructed a prompt and fed it to Grok.
-
-<img width="844" height="786" alt="image3" src="https://github.com/user-attachments/assets/e71f701a-179f-42a1-a0da-bb9d0e2642e9" />
-
-May 12, 2019 is the date for the quote. When entered, it revealed a secret key.
-
-<img width="333" height="174" alt="image4" src="https://github.com/user-attachments/assets/7362a5d7-c906-434b-8a75-2ca5e628e562" />
-
-Attempting to send this secret key to the endpoint didn't work, so I took a minute to look back at the rest of the problem. We had previously decoded the input message for the bot from base64, so encoding this as Base64 makes sense. We send this newly crafted HTTP request and it works.
-
-<img width="943" height="354" alt="image8" src="https://github.com/user-attachments/assets/763caacd-5cfd-4503-8681-7819e774d656" />
-
-**Flag:** Found in response
-
----
-
-## Forensics
-
-### IP Halloween 2025 - Bones 1
-
-**Difficulty:** Easy 🟢
-
-**Description:**
-
-A lone skull sits before you. Sometimes, one is all it takes to start a mystery.
-
-**Challenge URL:** https://pastebin.com/BvF8vM2Y
-
-**Solution:**
-
-Paste contains a file with a single skull emoji. Downloading the file and viewing it in Notepad shows that there are unknown characters as well. These characters are Unicode tags. We can use the following website for looking up each of these characters: https://r12a.github.io/uniview/
-
-Looking them up, we get a list of variation selectors. We extract the common values from them to end up with ASCII byte values. If we translate them into ASCII resulting in "3D6k<?<JO75DOB5;DO=(m". We finally add 16 decimal to the bytes to return the flag.
-
-**Flag:** `CTF{LOLZ_GET_REKT_M8}`
-
----
-
-### IP Halloween 2025 - Bones 2
-
-**Difficulty:** Easy 🟢
-
-**Description:**
-
-Just one skull again... but something lingers, unseen and unnoticed, within.
-
-**Challenge URL:** https://pastebin.com/5Z4Ey6q2
-
-**Solution:**
-
-Second verse, same as the first. We grab the hidden characters using the website in the first part of this problem series.
-
-**Flag:** `CTF{0K_Y0U_GOT_M3}`
-
----
-
-### IP Halloween 2025 - Bones 3
-
-**Difficulty:** Easy 🟢
-
-**Description:**
-
-The journey ends with one last skull. What secrets hide beneath its grin?
-
-**Challenge URL:** https://pastebin.com/AZJdNnwg
-
-**Solution:**
-
-The pattern repeats. Same website.
-
-**Flag:** `CTF{U_AR3_4_W1Z4RD_HARRY}`
-
----
-
-### IP Halloween 2025 - Bones 4
-
-**Difficulty:** Easy 🟢
-
-**Solution:**
-
-Same as above.
-
-**Flag:** `CTF{H0LY_GU4CAM0L3_UR_CRACKD}`
-
----
-
-### IP Halloween 2025 - Bones 5
-
-**Difficulty:** Medium 🟡
-
-**Description:**
-
-The same single skull, yet things aren't always what they seem.
-
-**Challenge URL:** https://pastebin.com/fTH1vZuk
-
-**Solution:**
-
-This one was different. I saw the output of the string on the website and noticed that there were only two symbols besides the skull, repeated quite frequently. This would imply that it is binary. I try converting each Invisible times to 0 and Invisible plus to 1. That results in a bitstream that then converts into ASCII.
-
-**Flag:** `CTF{W0W_UR_ON_4_R0LL}`
-
----
-
-## Cryptography
-
-### IP Halloween 2025 - Cipher Scream 1
-
-**Difficulty:** Easy 🟢
-
-**Description:**
-
-Find the flag hidden deep within this cipher.
-
-```
-Gur cuernxf pbzr bhg ng avtug
-...
-[Truncated cipher text]
-```
-
-**Solution:**
-
-This is a Caesar cipher. ROT13 decryption reveals song lyrics with the flag embedded:
-
-"They like to wear leather jackets, CTF{ch4ins&sp1kes}"
-
-**Flag:** `CTF{ch4ins&sp1kes}`
-
----
-
-### IP Halloween 2025 - Cipher Scream 2
-
-**Difficulty:** Medium 🟡
-
-**Description:**
-
-Find the flag hidden deep within this cipher.
-
-```
-Koac jnf qrrnc xf gfnra kpe
-...
-[Truncated cipher text]
-```
-
-**Solution:**
-
-This is a Vigenere cipher. AI systems couldn't solve it correctly, so I found a website that would solve it for me. You can tell it is Vigenere by the fact that the flag got turned into CVP from CTF.
-
-Site used: https://www.guballa.de/vigenere-solver
-
-The decrypted text reveals "This is Halloween" song lyrics with the flag embedded.
-
-**Flag:** `CTF{SCR34M!}`
-
----
-
-## General Skills
-
-### IP Halloween 2025 - Help
-
-**Difficulty:** Easy 🟢
-
-**Description:**
-
-Uncover the mystery of Zoe. https://zoeparas.blogspot.com/
-
-**Notes:**
-- No spaces in any of the passwords
-
----
-
-### IP Halloween 2025 - Encounters of the Weird Kind
-
-**Difficulty:** Hard 🔴
-
-**Description:**
-
-The US military has uncovered a strange device left in a crop circle in Idaho. All we were able to recover is this file. Can you find anything interesting about this file? Sounds like a set of tones that could be used to control someone's mind... or just to drive dogs crazy...
-
-**Notes:**
-- The flag does not have spaces but could contain letters, numbers, and symbols.
-
-**Solution:**
-
-The challenge starts with a provided wav file called weird.wav. Listening to it, it kind of sounds like a dial up datastream, but after much messing around, I was able to determine that it was a SSTV signal. Claude was especially helpful with this after providing the spectrogram that I had generated, narrowing the list of possibilities down to a short few.
-
-I went through a number of tools on Kali Linux to try to work this out, but eventually found a webtool that would print it out. The image from the audio contained the flag.
-
-<img width="320" height="256" alt="image6" src="https://github.com/user-attachments/assets/3e6ec091-d7bc-4f66-96a8-4a43f3fecefc" />
-
-**Flag:** `CTF{OMGth3yAreCOnTroLL1ngMYm1nd}`
+**Flag:** `C1{Parker's_Lowndes}`
 
 ---
 
 ## Reverse Engineering
 
-### IP Halloween 2025 - Hieroglyphs
+### Hardcoded Lies
 
-**Difficulty:** Easy 🟢
+**Points:** 75
+
+**Difficulty:** Easy
 
 **Description:**
 
-Deep within the ancient Egyptian pyramids lie untold treasures. Crack the code or face the Pharaoh's wrath.
+The malware sample doesn't appear to print anything useful. But our threat intel team believes it holds a hardcoded configuration string. Can you pull on some strings to retrieve it?
 
 **Solution:**
 
-The challenge starts with a zip file containing a 7z file with the flag in a text file and a class file that contains the key to unlock it. I tried to open it in Notepad++, Eclipse and Visual Studio, which all resulted in unclear text.
+I opened it in Ghidra and searched for strings. I didn't even have to filter the strings. When reading how others solved this, they often just ended up opening it in a text editor or running cat on it.
 
-<img width="1821" height="906" alt="image5" src="https://github.com/user-attachments/assets/255e37c2-38db-4e6a-a687-e32a291713c5" />
-
-I put the file into Claude to clear up the file. It found that it contained a Base64 string that was XORed with a key. Claude wrote a program to reverse this encoding and executed it, revealing the password.
-
-<img width="678" height="460" alt="image13" src="https://github.com/user-attachments/assets/95816de7-46e9-4b1c-9e16-e4b25cbb008c" />
-
-I put this into the password field for the 7z file, revealing a text file with the flag.
-
-**Flag:** `CTF{Ph4r40h}`
+**Flag:** `C1{h4rdc0ded_but_0verlooked}`
 
 ---
 
-### IP Halloween 2025 - Spirit Halloween!
+### Encoded Evidence
 
-**Difficulty:** Hard 🔴
+**Points:** 75
+
+**Difficulty:** Easy
 
 **Description:**
 
-We just launched the website for our new Halloween store. This used to be a CVS but now its the premiere place to buy costumes online, we invite you to test out Spirit Halloween!
-
-**Notes:**
-- ⚠️Use the command !ctfchallenge anywhere in the Infophreak Discord server and you will be sent instructions for starting the challenge⚠️
+We've intercepted a suspicious script file. It appears to be a placeholder for some kind of malware delivery mechanism, but the actual payload seems to be hosted somewhere else. Analysts believe a flag is hidden by this script. Can you locate and decode it?
 
 **Solution:**
 
-To start this challenge, we need to enter a command on the InfoPhreak discord. That command tells a bot to direct message us with information on the challenge. You react with a pumpkin emote to start the test environment. It opens up to a "Spirit Halloween" website. After some manual searching, I decided to just download the whole site so that I can search at my leisure. I went through a number of potential leads, starting with common places like robots.txt, which redirected to the index.html, a behavior repeated through all other attempted endpoints. I turned to the email and other forms inside of the main webpage, but that led nowhere. I did not solve this problem.
+I already had Ghidra open from the previous task, so I opened the file in Ghidra. I found a url leading to a pastebin.
+
+**URL:** https://pastebin.com/raw/eqkzMd2M
+
+The text from the pastebin read:
+
+```
+QzF7bjBfZDNidWdfbjBfcDR5bn0K
+```
+
+This is base64. Toss it in Cyberchef and click the wand above output for the flag.
+
+**Flag:** `C1{n0_d3bug_n0_p4yn}`
 
 ---
 
-## Cracking
+## Forensics
 
-### IP Halloween 2025 - Crack the Crypt
+### Hidden in Plain Sight
 
-**Difficulty:** Medium 🟡
+**Points:** 75
+
+**Difficulty:** Easy
 
 **Description:**
 
-A prompt flickers in the dark. Behind it, Frankenstein's monster waits---unfinished, forgotten, guarding knowledge not meant to endure.
-
-**Note:**
-- Windows Defender exclusion may be needed for executable
-
-**Challenge URL (Password: infected):**
-https://mega.nz/file/fnYxFKSb#iQ0Axk5YKYPivwQHAarlnQwO570F0Yw5ZaZ0OKF4ftk
+Analysts recovered a suspicious image from a threat actor's social media account. At first glance, it looks like an innocent selfie - but insider reports suggest that a flag might be hiding in the image metadata. Can you extract it?
 
 **Solution:**
 
-This was easily solved by plugging it into Claude. The password was berries1818. The first things he discovers in a forest are berries. The year of the novel's publication (Frankenstein - 1818) was a natural choice for the 4 digits.
+The metadata for this image was easy to find. I dropped the file into a website that showed the metadata for a given image. I am sure there is a native linux or windows method for doing this, but I wasn't aware of any at the time.
 
-<img width="546" height="313" alt="image11" src="https://github.com/user-attachments/assets/49e53a31-6c1b-4648-a19a-1f6fece694b8" />
+**Tool used:** https://www.metadata2go.com/view-metadata
 
-<img width="373" height="239" alt="image2" src="https://github.com/user-attachments/assets/acb60957-59c5-4efd-865c-292476626b81" />
+![selfie](https://github.com/user-attachments/assets/8bb3c19b-9ca5-4ee8-9b9e-be32558a94b9)
 
-**Flag:** `CTF{Berry_Sp00ky}`
+![image](https://github.com/user-attachments/assets/fcd8652e-6647-4a94-bf91-56f76120131a)
+
+**Flag:** `C1{smile_youre_flagged}`
+
+---
+
+### Behind the Beat
+
+**Points:** 75
+
+**Difficulty:** Easy
+
+**Description:**
+
+Agents intercepted an audio file named message.mp3. It plays a single tone, but we have intel that a flag might be tucked away in the metadata fields of the file. Can you inspect the file and uncover the flag?
+
+**Solution:**
+
+I remember solving this by checking the properties of the file and finding the flag there.
+
+**Flag:** `C1{metadata_tells_more}`
+
+---
+
+## Network Analysis
+
+### Packet Whisperer
+
+**Points:** 75
+
+**Difficulty:** Easy
+
+**Description:**
+
+Our blue team intercepted a network capture file. It contains unencrypted HTTP traffic. While skimming through it, analysts believe someone accidentally exposed their login credentials in plain text. Review the PCAP to find the password that the user logged in with.
+
+**Solution:**
+
+I opened wireshark, dropped the pcap file in and then filtered for HTTP post requests. I found the login request to a website, with the flag being given as the password.
+
+**Flag:** `C1{maybe_TLS_would_be_nice}`
+
+---
