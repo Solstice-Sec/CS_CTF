@@ -214,7 +214,27 @@ Sherlock Homeless
 
 **Solution:**
 
-All of these have pictures attached that you are supposed to glean information from. I didn't want to waste time putting each guess into the 7zip password file, so I tried using JohnTheRipper, since the naming is thematically appropriate and probably intended. I tried both John and Hashcat, but they both found nothing. I figured it was probably a technical issue rather than just not having the password, so I created a password protected 7z file and tested both against it, this time with a password list with a known good password. Didn't work.
+All of these have pictures attached that you are supposed to glean information from. 
+
+1: M. I had tried find the specific location online, but I couldn't find it. The puzzle seems to me to imply that the answer is behind the point of view of the photo. When performing a dictionary attack on the file, I used A-Z, a-z on this place. 
+
+2: O or L. The image is of the London Eye. When I see round, I assume it is either meaning the character in the name or the "round" of the name, being o.
+
+3: U or E. 3rd as the journey ends implies the third character in the word, either from the first or last. Attempts to find this photo's specific location were also a failure.
+
+4: R or O. Implies the start of the Rome, but also says a hollow waits - the first to step in, which implies R or O.
+
+5: -. The text says that it is a quiet mark that is a hidden link. It could also be implied that the lane markings are the answer. 
+
+6: T. This seems to be in the Faroe islands. Torshavn appears to be the island that the text is talking about.
+
+7: 1, I or B. Rank in history implies first place, which could mean the first character. The oldest thing in the photo appears to be the Brandaris. 
+
+8: @. Riddle implies technology background. Curl that bridges left and right would imply an @.  RTX BBN Technologies.
+
+9: M. Mayweather. For this one I had assembled a list of characters from last names, but I still think it is Mayweather. The character list looked like "P D C M". I don't pay much attention to sports, so this is one I would know much about.
+
+I didn't want to waste time putting each guess into the 7zip password file, so I tried using JohnTheRipper, since the naming is thematically appropriate and probably intended. I tried both John and Hashcat, but they both found nothing. I figured it was probably a technical issue rather than just not having the password, so I created a password protected 7z file and tested both against it, this time with a password list with a known good password. Didn't work.
 
 Ultimately, I wound up using a script to perform the same task:
 
@@ -222,7 +242,7 @@ Ultimately, I wound up using a script to perform the same task:
 cat testPass.txt | parallel -j16 '7z t -p{} Test.7z >/dev/null 2>&1 && echo FOUND:{} && pkill -P $$ parallel'
 ```
 
-We cat the password list, opening parallel 7zip instances against each password. When the password is found, it echos the pass.
+We cat the password list, opening parallel 7zip instances against each password. When the password is found, it echos the password.
 
 I exhausted a sizable password list of around one million combinations to no avail. I left this one unanswered.
 
